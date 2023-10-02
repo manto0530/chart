@@ -19,6 +19,27 @@ class SectorsController < ApplicationController
   def edit
   end
 
+
+
+  def calculate_percentage
+    selected_sectors = params[:selected_sectors] || []
+    
+    # Calculate the percentage based on selected sectors
+    total = selected_sectors.length
+    sector_percentages = {}
+    
+    selected_sectors.each do |sector_id|
+      sector = Sector.find(sector_id)
+      sector_percentages[sector.name] = (sector.value / total.to_f * 100).round(2)
+    end
+    
+    render json: { percentages: sector_percentages }
+  end
+
+
+
+  
+
   # POST /sectors or /sectors.json
   def create
     @sector = Sector.new(sector_params)
