@@ -1,0 +1,11 @@
+p style="color: green" = notice
+
+h1 Sectors
+
+#sectors
+  - @sectors.each do |sector|
+    == render sector
+    p
+      = link_to "Show this sector", sector
+
+= link_to "New sector", new_sector_path

@@ -5,3 +5,19 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+Sector.delete_all
+
+# Insert sector names
+sectors_data = [
+  'AGRICULTURE',
+  'DOMESTIC',
+  'CONSTRUCTION',
+  'MANUFACTURING',
+  'SERVICE',
+  'PLANTATION',
+  'MINING'
+]
+
+sectors_data.each do |sector_name|
+  Sector.create(name: sector_name)
+end
