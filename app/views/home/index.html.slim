@@ -1,0 +1,72 @@
+doctype html
+html[lang="en"]
+  head
+    title
+      | Pie Chart
+    meta[charset="utf-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1"]
+    link[rel="stylesheet" href="css/bootstrap.min.css"]
+    link[rel="stylesheet" href="css/custom.css"]
+    script[src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"]
+    script[type="text/javascript" src="https://www.gstatic.com/charts/loader.js"]
+    script[src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"]
+  body
+    .dashboard-body
+      .dashboard-body.my-2
+        .container-fluid
+          .row
+            .col-12.col-sm-12.col-md-3.mb-3
+              .chard-card
+                .card
+                  .card-header
+                    |  Filter Sectors
+                  .card-body.p-0
+                    .card-scroll
+                      ul.list-group.list-group-flush
+                        li.list-group-item
+                          input[type="checkbox" name="addcheck"]
+                          |  Select All 
+                        li.list-group-item
+                          input[type="checkbox" name="addcheck"]
+                          |  Entertainment 
+                        li.list-group-item
+                          input[type="checkbox" name="addcheck"]
+                          |  Technology 
+                        li.list-group-item
+                          input[type="checkbox" name="addcheck"]
+                          |  Finance 
+                        li.list-group-item
+                          input[type="checkbox" name="addcheck"]
+                          |  Hospitality 
+                        li.list-group-item
+                          input[type="checkbox" name="addcheck"]
+                          |  Healthcare 
+                        li.list-group-item
+                          input[type="checkbox" name="addcheck"]
+                          |  Transportation 
+                        li.list-group-item
+                          input[type="checkbox" name="addcheck"]
+                          |  Manufacturing 
+                        li.list-group-item
+                          input[type="checkbox" name="addcheck"]
+                          |  Retail 
+                        li.list-group-item
+                          input[type="checkbox" name="addcheck"]
+                          |  Energy 
+                        li.list-group-item
+                          input[type="checkbox" name="addcheck"]
+                          |  Education 
+                  .filter-btn
+                    button.btn-apply[data-toggle="collapse" data-target="#tag_demo"]
+                      |  Apply
+                    button#sidebarCollapse.btn-clear
+                      | Clear
+            .col-12.col-sm-12.col-md-9
+              .chard-card
+                .card
+                  .card-header
+                    |  Pie Chart Sectors 
+                  .card-body.p-1[style="height: 450px;"]
+                    #piechart[style="width: 100%; height:100%;"]
+script[type="text/javascript"]
+  |  google.charts.load('current', {'packages':['corechart']}); google.charts.setOnLoadCallback(drawChart); function drawChart() { var data = google.visualization.arrayToDataTable([ ['Task', 'Hours per Day'], ['Entertainment',11], ['Technology',10], ['Finance',10], ['Hospitality',20], ['Healthcare',10], ['Transportation',12], ['Manufacturing',13], ['Retail', 12], ['Energy', 12], ['Education', 12] ]); var options = { legend: { position: 'right'}, 'chartArea':{'width':'100%','height':'80%'}, vAxis: {minValue: 0} }; var chart = new google.visualization.PieChart(document.getElementById('piechart')); chart.draw(data, options); } 
